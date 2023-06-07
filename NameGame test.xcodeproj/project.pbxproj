@@ -14,6 +14,10 @@
 		96FF3D5A2A311153008693CE /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FF3D592A311153008693CE /* Question.swift */; };
 		96FF3D5D2A311220008693CE /* Blackbird in Frameworks */ = {isa = PBXBuildFile; productRef = 96FF3D5C2A311220008693CE /* Blackbird */; };
 		96FF3D5F2A311246008693CE /* db.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 96FF3D5E2A311246008693CE /* db.sqlite */; };
+		96FF3D632A31192C008693CE /* QuestionDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FF3D622A31192C008693CE /* QuestionDatabase.swift */; };
+		96FF3D652A311CE2008693CE /* AddQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FF3D642A311CE2008693CE /* AddQuestionView.swift */; };
+		96FF3D672A311F20008693CE /* QuestionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FF3D662A311F20008693CE /* QuestionStore.swift */; };
+		96FF3D692A312C82008693CE /* SQLiteQuestionDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FF3D682A312C82008693CE /* SQLiteQuestionDatabase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		96FF3D412A30EA87008693CE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		96FF3D592A311153008693CE /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		96FF3D5E2A311246008693CE /* db.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = db.sqlite; sourceTree = "<group>"; };
+		96FF3D622A31192C008693CE /* QuestionDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionDatabase.swift; sourceTree = "<group>"; };
+		96FF3D642A311CE2008693CE /* AddQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQuestionView.swift; sourceTree = "<group>"; };
+		96FF3D662A311F20008693CE /* QuestionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionStore.swift; sourceTree = "<group>"; };
+		96FF3D682A312C82008693CE /* SQLiteQuestionDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteQuestionDatabase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +88,7 @@
 			children = (
 				96FF3D5E2A311246008693CE /* db.sqlite */,
 				96FF3D592A311153008693CE /* Question.swift */,
+				96FF3D662A311F20008693CE /* QuestionStore.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -88,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				96FF3D3C2A30EA85008693CE /* ContentView.swift */,
+				96FF3D642A311CE2008693CE /* AddQuestionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -95,6 +105,8 @@
 		96FF3D512A30F35F008693CE /* helper */ = {
 			isa = PBXGroup;
 			children = (
+				96FF3D622A31192C008693CE /* QuestionDatabase.swift */,
+				96FF3D682A312C82008693CE /* SQLiteQuestionDatabase.swift */,
 			);
 			path = helper;
 			sourceTree = "<group>";
@@ -179,6 +191,10 @@
 				96FF3D5A2A311153008693CE /* Question.swift in Sources */,
 				96FF3D3D2A30EA85008693CE /* ContentView.swift in Sources */,
 				96FF3D3B2A30EA85008693CE /* NameGame_testApp.swift in Sources */,
+				96FF3D692A312C82008693CE /* SQLiteQuestionDatabase.swift in Sources */,
+				96FF3D672A311F20008693CE /* QuestionStore.swift in Sources */,
+				96FF3D652A311CE2008693CE /* AddQuestionView.swift in Sources */,
+				96FF3D632A31192C008693CE /* QuestionDatabase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
