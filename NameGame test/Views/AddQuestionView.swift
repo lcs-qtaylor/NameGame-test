@@ -1,110 +1,124 @@
-//import SwiftUI
-//
-//struct AddQuestionView: View {
-//    @Environment(\.presentationMode) private var presentationMode
-//    @State private var imageName: String = ""
-//    @State private var correctAnswer: String = ""
-//
-//    var addQuestionAction: ((_ question: Question) -> Void)
-//
-//    var body: some View {
-//        NavigationView {
-//            VStack {
-//                Form {
-//                    Section(header: Text("Question Details")) {
-//                        TextField("Image Name", text: $imageName)
-//                        TextField("Correct Answer", text: $correctAnswer)
-//                    }
-//                }
-//
-//                Button(action: addQuestion) {
-//                    Text("Add Question")
-//                        .padding()
-//                        .frame(maxWidth: .infinity)
-//                        .background(Color.blue)
-//                        .foregroundColor(.white)
-//                        .cornerRadius(8)
-//                }
-//                .padding()
-//            }
-//            .navigationTitle("Add Question")
-//            .toolbar {
-//                ToolbarItem(placement: .navigationBarLeading) {
-//                    Button(action: dismiss) {
-//                        Text("Cancel")
-//                    }
-//                }
-//            }
-//        }
-//    }
-//
-//    private func addQuestion() {
-//        let question = Question(imageName: imageName, correctAnswer: correctAnswer)
-//        addQuestionAction(question)
-//        dismiss()
-//    }
-//
-//    private func dismiss() {
-//        presentationMode.wrappedValue.dismiss()
-//    }
-//}
-//struct AddQuestionView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        AddQuestionView()
-//    }
-//}
+
+
+
 import SwiftUI
-import Blackbird
+import UIKit
 
 struct AddQuestionView: View {
-    @EnvironmentObject var questionStore: QuestionStore
-    @Environment(\.presentationMode) private var presentationMode
-    @State private var imageName: String = ""
-    @State private var correctAnswer: String = ""
-
+    @Environment(\.presentationMode) var presentationMode
+    @Binding var image: UIImage?
+    @Binding var answer: String
+    var onSave: () -> Void
+    
     var body: some View {
-        NavigationView {
-            VStack {
-                Form {
-                    Section(header: Text("Question Details")) {
-                        TextField("Image Name", text: $imageName)
-                        TextField("Correct Answer", text: $correctAnswer)
-                    }
-                }
+        VStack {
+            ZStack {
+                Rectangle()
+                    .stroke(Color.black, lineWidth: 1)
+                    .aspectRatio(1, contentMode: .fit)
+                    .background(Color.gray)
                 
-                Button(action: addQuestion) {
-                    Text("Add Question")
+                if let image = image {
+                    Image(uiImage: image)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
                         .padding()
-                        .frame(maxWidth: .infinity)
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(8)
+                } else {
+                    VStack {
+                        
+                        Image(systemName: "photo")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 50, height: 50)
+                        
+                        Text("No Image Selected")
+                            .foregroundColor(.black)
+                            .font(.headline)
+                    }
+                     
+                }
+            }
+            
+            Button(action: {
+                showImagePicker()
+            }) {
+
+                Image(systemName: "camera.on.rectangle.fill")
+                Text("Add Image")
+                foregroundColor(.white)
+            }
+            .padding()
+            
+            TextField("Enter the answer", text: $answer)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding()
+            
+            HStack {
+                Button(action: {
+                    presentationMode.wrappedValue.dismiss()
+                }) {
+                    Text("Cancel")
+                }
+                .padding()
+                
+                Button(action: {
+                    onSave()
+                    presentationMode.wrappedValue.dismiss()
+                }) {
+                    Text("Save Question")
                 }
                 .padding()
             }
-            .navigationTitle("Add Question")
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button(action: dismiss) {
-                        Text("Cancel")
-                    }
-                }
-            }
+            
+            Spacer()
         }
     }
-
-    private func addQuestion() {
-        let question = Question(imageName: imageName, correctAnswer: correctAnswer)
-        questionStore.addQuestion(question)
-        dismiss()
+    
+    func showImagePicker() {
+#if targetEnvironment(simulator)
+        print("Cannot access camera on simulator.")
+#else
+        let picker = UIImagePickerController()
+        picker.sourceType = .photoLibrary
+        picker.delegate = context.coordinator // Set the delegate to handle image selection
+        
+        UIApplication.shared.windows.first?.rootViewController?.present(picker, animated: true, completion: nil)
+#endif
     }
-
-    private func dismiss() {
-        presentationMode.wrappedValue.dismiss()
+    
+    // Coordinator for handling image picker delegate methods
+    class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+        let parent: AddQuestionView
+        
+        init(_ parent: AddQuestionView) {
+            self.parent = parent
+        }
+        
+        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+            guard let selectedImage = info[.originalImage] as? UIImage else {
+                return
+            }
+            
+            parent.image = selectedImage
+            picker.dismiss(animated: true, completion: nil)
+        }
+        
+        func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+            picker.dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    // Create and use the coordinator
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self)
     }
 }
+
 struct AddQuestionView_Previews: PreviewProvider {
     static var previews: some View {
-        AddQuestionView()
+        AddQuestionView(image: .constant(nil), answer: .constant(""), onSave: {})
     }
 }
+
+
+
