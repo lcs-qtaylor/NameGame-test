@@ -4,8 +4,9 @@
 //
 //  Created by Quin Taylor on 2023-06-07.
 //
-
 import SwiftUI
+import Blackbird
+import BlackbirdSQLite
 
 @main
 struct NameGame_testApp: App {

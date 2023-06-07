@@ -11,10 +11,9 @@
 		96FF3D3D2A30EA85008693CE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FF3D3C2A30EA85008693CE /* ContentView.swift */; };
 		96FF3D3F2A30EA87008693CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96FF3D3E2A30EA87008693CE /* Assets.xcassets */; };
 		96FF3D422A30EA87008693CE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96FF3D412A30EA87008693CE /* Preview Assets.xcassets */; };
-		96FF3D492A30ECC9008693CE /* AddPersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FF3D482A30ECC9008693CE /* AddPersonView.swift */; };
-		96FF3D4B2A30F0A4008693CE /* QuestionTableHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FF3D4A2A30F0A4008693CE /* QuestionTableHelper.swift */; };
-		96FF3D532A30F52F008693CE /* db.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 96FF3D522A30F52F008693CE /* db.sqlite */; };
-		96FF3D562A30F607008693CE /* Blackbird in Frameworks */ = {isa = PBXBuildFile; productRef = 96FF3D552A30F607008693CE /* Blackbird */; };
+		96FF3D5A2A311153008693CE /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FF3D592A311153008693CE /* Question.swift */; };
+		96FF3D5D2A311220008693CE /* Blackbird in Frameworks */ = {isa = PBXBuildFile; productRef = 96FF3D5C2A311220008693CE /* Blackbird */; };
+		96FF3D5F2A311246008693CE /* db.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 96FF3D5E2A311246008693CE /* db.sqlite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,9 +22,8 @@
 		96FF3D3C2A30EA85008693CE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		96FF3D3E2A30EA87008693CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		96FF3D412A30EA87008693CE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		96FF3D482A30ECC9008693CE /* AddPersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPersonView.swift; sourceTree = "<group>"; };
-		96FF3D4A2A30F0A4008693CE /* QuestionTableHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTableHelper.swift; sourceTree = "<group>"; };
-		96FF3D522A30F52F008693CE /* db.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = db.sqlite; sourceTree = "<group>"; };
+		96FF3D592A311153008693CE /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		96FF3D5E2A311246008693CE /* db.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = db.sqlite; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,7 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96FF3D562A30F607008693CE /* Blackbird in Frameworks */,
+				96FF3D5D2A311220008693CE /* Blackbird in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,7 +78,8 @@
 		96FF3D4F2A30F34E008693CE /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				96FF3D522A30F52F008693CE /* db.sqlite */,
+				96FF3D5E2A311246008693CE /* db.sqlite */,
+				96FF3D592A311153008693CE /* Question.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -89,7 +88,6 @@
 			isa = PBXGroup;
 			children = (
 				96FF3D3C2A30EA85008693CE /* ContentView.swift */,
-				96FF3D482A30ECC9008693CE /* AddPersonView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -97,7 +95,6 @@
 		96FF3D512A30F35F008693CE /* helper */ = {
 			isa = PBXGroup;
 			children = (
-				96FF3D4A2A30F0A4008693CE /* QuestionTableHelper.swift */,
 			);
 			path = helper;
 			sourceTree = "<group>";
@@ -119,7 +116,7 @@
 			);
 			name = "NameGame test";
 			packageProductDependencies = (
-				96FF3D552A30F607008693CE /* Blackbird */,
+				96FF3D5C2A311220008693CE /* Blackbird */,
 			);
 			productName = "NameGame test";
 			productReference = 96FF3D372A30EA85008693CE /* NameGame test.app */;
@@ -150,7 +147,7 @@
 			);
 			mainGroup = 96FF3D2E2A30EA85008693CE;
 			packageReferences = (
-				96FF3D542A30F607008693CE /* XCRemoteSwiftPackageReference "Blackbird" */,
+				96FF3D5B2A311220008693CE /* XCRemoteSwiftPackageReference "Blackbird" */,
 			);
 			productRefGroup = 96FF3D382A30EA85008693CE /* Products */;
 			projectDirPath = "";
@@ -167,7 +164,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96FF3D422A30EA87008693CE /* Preview Assets.xcassets in Resources */,
-				96FF3D532A30F52F008693CE /* db.sqlite in Resources */,
+				96FF3D5F2A311246008693CE /* db.sqlite in Resources */,
 				96FF3D3F2A30EA87008693CE /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -179,10 +176,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96FF3D4B2A30F0A4008693CE /* QuestionTableHelper.swift in Sources */,
+				96FF3D5A2A311153008693CE /* Question.swift in Sources */,
 				96FF3D3D2A30EA85008693CE /* ContentView.swift in Sources */,
 				96FF3D3B2A30EA85008693CE /* NameGame_testApp.swift in Sources */,
-				96FF3D492A30ECC9008693CE /* AddPersonView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,7 +235,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -293,7 +289,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -385,7 +381,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		96FF3D542A30F607008693CE /* XCRemoteSwiftPackageReference "Blackbird" */ = {
+		96FF3D5B2A311220008693CE /* XCRemoteSwiftPackageReference "Blackbird" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/marcoarment/Blackbird";
 			requirement = {
@@ -396,9 +392,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		96FF3D552A30F607008693CE /* Blackbird */ = {
+		96FF3D5C2A311220008693CE /* Blackbird */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 96FF3D542A30F607008693CE /* XCRemoteSwiftPackageReference "Blackbird" */;
+			package = 96FF3D5B2A311220008693CE /* XCRemoteSwiftPackageReference "Blackbird" */;
 			productName = Blackbird;
 		};
 /* End XCSwiftPackageProductDependency section */
